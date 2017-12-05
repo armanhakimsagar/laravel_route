@@ -17,7 +17,7 @@ Route::any('foo', function () {					// if match with any
 ____________
 
 
-Route::get('uri', 'controller/method');
+Route::get('uri', 'controller@method');
 
 
 ____________
