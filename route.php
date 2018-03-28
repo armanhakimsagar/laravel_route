@@ -190,6 +190,16 @@ create file :
 view -> errors -> 404.blade.php
 
 
+_____________
+
+
+Whoops template edit :
+
+
+    public function render($request, Exception $exception)
+    {
+         return response()->view('errors.404');
+    }
 
 
 __________
