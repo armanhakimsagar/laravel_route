@@ -263,3 +263,29 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'Middlew
     Route::get('user/profile', 'UserController@showProfile');
     
 });
+
+
+
+controller :
+
+
+
+class LoginController extends Controller
+{
+    public function match_data(Request $request){
+        
+        
+        $registration = registration::where('name', $request->username)
+                                        ->orderBy('passwords', $request->passwords)
+                                        ->get();
+        
+
+        if(count($registration) == 1){
+            return redirect('admin/meeting');
+        }else{
+            $request->session()->flash('login_error', 'User name or password not match');
+            return view('login');
+        }
+        
+    }
+}
